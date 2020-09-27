@@ -36,9 +36,12 @@
                     }
                 }
             ?>
-
         </div>
+        <hr>
 
+        <div class="container">
+            <?php include "overview.php";?>
+        </div>
         <hr>
 
 <?php include "includes/footer.php"; ?>
