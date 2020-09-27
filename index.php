@@ -10,26 +10,23 @@
     <!-- Page Content -->
     <div class="container">
         <div>
-
-
-            <!-- GET URL -->
             <h1><strong>Testing DB Connect</strong></h1>
+
+            <?php include "shorten_link_form.php";?>
+
             <?php 
-                $query_url = "SELECT * FROM urls";
-                $select_all_urls_query = mysqli_query($connection, $query_url);
-                while($row = mysqli_fetch_assoc($select_all_urls_query)){
-                    $url_id = $row['url_id'];
-                    $url_long = $row['url_long'];
-                    $url_short = $row['url_short'];
-                    $url_base = $row['url_base'];
-                    $url_date = $row['url_date'];
+            // http://localhost:8888/shortCusturl/?url_base=4542c
+                if(isset($_GET['url_base'])){
+                    $url_base = mysqli_real_escape_string($connection, $_GET['url_base']);
+                    $query_url_link = "SELECT url_long FROM urls where url_base='$url_base' ";
+                    $select_all_urls_query = mysqli_query($connection, $query_url_link);
+
+                    while($row = mysqli_fetch_assoc($select_all_urls_query)){
+                        $link= $row['url_long'];
+                        header("Location:" . $link);
+                    }
                 }
             ?>
-            <ul>
-                <li><?php echo $url_long?></li>
-                <li></li>
-            </ul>
-            <?php include "shorten_link_form.php";?>
 
         </div>
 
