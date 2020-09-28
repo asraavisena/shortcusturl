@@ -10,7 +10,7 @@
     <!-- Page Content -->
     <div class="container">
         <div>
-            <h1><strong>Testing DB Connect</strong></h1>
+            <h1><strong>Shorten URL</strong></h1>
 
             <?php include "shorten_link_form.php";?>
             <?php include "urls.php";?>
