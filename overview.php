@@ -5,8 +5,8 @@
         <tr>
             <th>Id</th>
             <th>Long Url</th>
-            <th>Short Url</th>
             <th>Base Url</th>
+            <th>Short Url</th>
             <th>Date</th>
             <th>View Count</th>
         </tr>
@@ -27,8 +27,8 @@
                 echo "<tr>";
                 echo "<td>{$url_id}</td>";
                 echo "<td>{$url_long}</td>";
-                echo "<td>{$url_short}</td>";
                 echo "<td>{$url_base}</td>";
+                echo "<td><a href= '$url_short'>$url_short</a></td>";
                 echo "<td>{$url_date}</td>";
                 echo "<td>{$url_views_count}</td>";
                 echo "</tr>";

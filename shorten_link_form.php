@@ -16,9 +16,10 @@ if(isset($_POST['send_url'])){
     
     $url_long = $_POST['url_long'];
     $url_date = date('d-m-y');
+    $url_short = '/shortCusturl/s/' . $rand;
 
-    $query = "INSERT INTO urls (url_long, url_base, url_date)";
-    $query .= "VALUES ('{$url_long}', '{$rand}', now())";
+    $query = "INSERT INTO urls (url_long, url_base, url_date, url_short) ";
+    $query .= "VALUES ('{$url_long}', '{$rand}', now(), '{$url_short}') ";
 
     $create_post_query = mysqli_query($connection, $query);
 
