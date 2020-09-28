@@ -19,7 +19,7 @@
                         <a href="registration.php">Registration</a>
                     </li>
                     <li>
-                        <a href="#">Login</a>
+                        <a href="loginpage.php">Login</a>
                     </li>
                     <li>
                         <a href="#">Logout</a>
