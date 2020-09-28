@@ -21,12 +21,12 @@ if(isset($_POST['login'])){
      }
 
      if($username !== $db_username && $password !== $db_user_password){
-        header("Location: ../loginpage.php");
+        header("Location: ../login_page.php");
      }else if($username == $db_username && $password == $db_user_password){
         $_SESSION['username'] = $db_username;
-        header("Location: ../users.php");
+        header("Location: ../index.php");
      }else {
-        header("Location: ../loginpage.php");
+        header("Location: ../login_page.php");
      }
 }
 

@@ -16,11 +16,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="users.php">Users</a>
+                    <?php if(isset($_SESSION['username'])){?>
+                        <li>
+                        <a href="your_urls.php">Your Urls</a>
                     </li>
-                    <?php if(isset($_SESSION['username'])){
-                        ?>
                     <li>
                         <a href="./includes/logout.php">Logout</a>
                     </li>
@@ -30,7 +29,7 @@
                         <a href="registration.php">Registration</a>
                     </li>
                     <li>
-                        <a href="loginpage.php">Login</a>
+                        <a href="login_page.php">Login</a>
                     </li>
                     <?php } ?>
                    

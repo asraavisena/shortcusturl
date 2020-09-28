@@ -9,8 +9,11 @@
 
     <!-- Page Content -->
     <div class="container">
+    <?php if(isset($_SESSION['username'])){?>
+        <h1>Welcome <?php echo $_SESSION['username']?></h1>
+    <?php }?>
         <div>
-            <h1><strong>Shorten URL</strong></h1>
+            <h3><strong>Shorten URL:</strong></h3>
 
             <?php include "shorten_link_form.php";?>
             <?php include "urls.php";?>
