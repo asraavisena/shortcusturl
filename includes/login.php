@@ -1,6 +1,8 @@
 <?php include "db.php";?>
 <?php include "../functions.php";?>
+
 <?php
+session_start();
 if(isset($_POST['login'])){
     $username= $_POST['username'];
     $password= $_POST['password'];
@@ -16,6 +18,15 @@ if(isset($_POST['login'])){
         $db_user_id = $row['user_id'];
         $db_username = $row['username'];
         $db_user_password = $row['user_password'];
+     }
+
+     if($username !== $db_username && $password !== $db_user_password){
+        header("Location: ../loginpage.php");
+     }else if($username == $db_username && $password == $db_user_password){
+        $_SESSION['username'] = $db_username;
+        header("Location: ../users.php");
+     }else {
+        header("Location: ../loginpage.php");
      }
 }
 

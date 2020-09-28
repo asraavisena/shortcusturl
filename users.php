@@ -1,5 +1,8 @@
-<?php
+<!-- Header -->
+<?php include "includes/header.php";?>
+<!-- Navigation -->
+<?php include "includes/navigation.php";?>
 
-echo $_SERVER['REQUEST_URI'] . '<br>';
+<h1>WELCOME USERS <?php echo $_SESSION['username']?></h1>
 
-print_r($_GET);
+<?php include "includes/footer.php";?>
