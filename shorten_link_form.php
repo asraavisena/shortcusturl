@@ -1,5 +1,4 @@
 
-
 <form action="" method="post" enctype="multipart/form-data">
     <div>
         <label  class="sr-only">URL</label>
@@ -13,13 +12,21 @@
 <?php 
 if(isset($_POST['send_url'])){
     $rand= substr(md5(microtime()), rand(0,26),5);
-    
+        
     $url_long = $_POST['url_long'];
     $url_date = date('d-m-y');
     $url_short = '/shortCusturl/s/' . $rand;
 
-    $query = "INSERT INTO urls (url_long, url_base, url_date, url_short) ";
-    $query .= "VALUES ('{$url_long}', '{$rand}', now(), '{$url_short}') ";
+    if(isset($_SESSION['username'])){
+        $url_author = $_SESSION['username'];
+
+        $query = "INSERT INTO urls (url_long, url_base, url_date, url_short, url_author) ";
+        $query .= "VALUES ('{$url_long}', '{$rand}', now(), '{$url_short}', '{$url_author}') ";
+    }
+    else{
+        $query = "INSERT INTO urls (url_long, url_base, url_date, url_short) ";
+        $query .= "VALUES ('{$url_long}', '{$rand}', now(), '{$url_short}') ";
+    }
 
     $create_post_query = mysqli_query($connection, $query);
 

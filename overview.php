@@ -8,13 +8,14 @@
             <th>Base Url</th>
             <th>Short Url</th>
             <th>Date</th>
+            <th>Author</th>
             <th>View Count</th>
         </tr>
     </thead>
     <tbody>
         <?php 
             // PAGINATION
-            $per_page = 5;
+            $per_page = 10;
             if(isset($_GET['page'])){
                 $page = $_GET['page'];
                 
@@ -33,7 +34,7 @@
             $count = mysqli_num_rows($find_count);
             $count = ceil($count / $per_page);
 
-            $query_url = "SELECT * FROM urls LIMIT $page_1, $per_page ";
+            $query_url = "SELECT * FROM urls ORDER BY url_id DESC LIMIT $page_1, $per_page  ";
             $select_all_urls_query = mysqli_query($connection, $query_url);
 
             while($row = mysqli_fetch_assoc($select_all_urls_query)){
@@ -42,6 +43,7 @@
                 $url_short = $row['url_short'];
                 $url_base = $row['url_base'];
                 $url_date = $row['url_date'];
+                $url_author = $row['url_author'];
                 $url_views_count = $row['url_views_count'];
 
                 echo "<tr>";
@@ -50,12 +52,13 @@
                 echo "<td>{$url_base}</td>";
                 echo "<td><a href= '$url_short'>$url_short</a></td>";
                 echo "<td>{$url_date}</td>";
+                echo "<td>{$url_author}</td>";
                 echo "<td>{$url_views_count}</td>";
                 echo "</tr>";
             }
         ?>
     </tbody>
-    
+
     <!-- link for pagination -->
     <ul class="pager">
         <?php 
