@@ -23,12 +23,7 @@
         </thead>
         <tbody>
             <?php 
-                if(isset($_GET['delete'])) {
-                    $the_url_id = $_GET['delete'];
-                    $query = "DELETE FROM urls WHERE url_id = {$the_url_id}";
-                    $delete_query = mysqli_query($connection, $query);
-                    header("Location: your_urls.php");
-                }
+                deleteURL();
                 // PAGINATION
                 $per_page = 10;
                 if(isset($_GET['page'])){
@@ -44,13 +39,14 @@
                     $page_1 = ($page * $per_page) - $per_page;
                 }
 
-                $url_query_count = "SELECT * FROM urls ";
+                if(isset($_SESSION['username'])){
+                    $the_username= $_SESSION['username'];
+                $url_query_count = "SELECT * FROM urls WHERE url_author = '{$the_username}' ";
                 $find_count = mysqli_query($connection, $url_query_count);
                 $count = mysqli_num_rows($find_count);
                 $count = ceil($count / $per_page);
 
-                if(isset($_SESSION['username'])){
-                    $the_username= $_SESSION['username'];
+
                 
                 $query_url = "SELECT * FROM urls WHERE url_author = '{$the_username}' ";
                 $query_url .= "ORDER BY url_id DESC LIMIT $page_1, $per_page  ";

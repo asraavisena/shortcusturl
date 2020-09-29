@@ -15,8 +15,8 @@
         <div>
             <h3><strong>Shorten URL:</strong></h3>
 
-            <?php include "./includes/shorten_link_form.php";?>
-            <?php include "urls.php";?>
+            <?php include "./includes/short_url_form.php";?>
+            <?php include "./includes/short_urls.php";?>
 
         </div>
         <hr>
@@ -32,7 +32,7 @@
             if(isset($_GET['delete_urls'])) {
                 // echo "<h1>Working</h1>";
                 $the_url_id = $_GET['delete_urls'];
-                $query = "DELETE FROM urls WHERE url_author = 'null' AND url_date < DATE_SUB(NOW(), INTERVAL 2 DAY) ";
+                $query = "DELETE FROM urls WHERE url_author IS NULL AND url_date < DATE_SUB(NOW(), INTERVAL 2 DAY) ";
                 $delete_query = mysqli_query($connection, $query);
                 header("Location: index.php");
             }  
