@@ -1,4 +1,3 @@
-
 <form action="" method="post" enctype="multipart/form-data">
     <div>
         <label  class="sr-only">URL</label>
@@ -28,9 +27,9 @@ if(isset($_POST['send_url'])){
         $query .= "VALUES ('{$url_long}', '{$rand}', now(), '{$url_short}') ";
     }
 
-    $create_post_query = mysqli_query($connection, $query);
+    $create_url_query = mysqli_query($connection, $query);
 
-    confirmQuery($create_post_query);
+    confirmQuery($create_url_query);
 
     $query_url = "SELECT * FROM urls";
     $select_all_urls_query = mysqli_query($connection, $query_url);

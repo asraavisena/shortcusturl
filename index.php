@@ -15,7 +15,7 @@
         <div>
             <h3><strong>Shorten URL:</strong></h3>
 
-            <?php include "shorten_link_form.php";?>
+            <?php include "./includes/shorten_link_form.php";?>
             <?php include "urls.php";?>
 
         </div>

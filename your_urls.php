@@ -73,7 +73,7 @@
                     echo"<td>{$url_date}</td>";
                     echo"<td>{$url_author}</td>";
                     echo"<td>{$url_views_count}</td>";
-                    echo"<td><a href='posts.php?source=edit_post&p_id='>Edit</a></td>";
+                    echo"<td><a href='edit_url.php?url_id={$url_id}'>Edit</a></td>";
                     echo"<td><a onClick=\"javascript:return confirm('Are you sure want to delete?')\" href='your_urls.php?delete={$url_id}'>Delete</a></td>";
                     echo"</tr>";
                 }
