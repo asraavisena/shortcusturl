@@ -32,7 +32,7 @@
             if(isset($_GET['delete_urls'])) {
                 // echo "<h1>Working</h1>";
                 $the_url_id = $_GET['delete_urls'];
-                $query = "DELETE FROM urls WHERE url_author IS NULL AND url_date < DATE_SUB(NOW(), INTERVAL 2 DAY) ";
+                $query = "DELETE FROM urls WHERE url_author IS NULL AND url_date < DATE_SUB(NOW(), INTERVAL 30 DAY) ";
                 $delete_query = mysqli_query($connection, $query);
                 header("Location: index.php");
             }  

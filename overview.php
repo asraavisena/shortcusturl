@@ -15,7 +15,7 @@
     <tbody>
         <?php 
             // PAGINATION
-            $per_page = 10;
+            $per_page = 20;
             if(isset($_GET['page'])){
                 $page = $_GET['page'];
                 
